@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - gigapi.gigapi.io
+  resources:
+  - gigapis
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - gigapi.gigapi.io
+  resources:
+  - gigapis/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - gigapi.gigapi.io
+  resources:
+  - gigapis/status
+  verbs:
+  - get
+  - patch
+  - update
